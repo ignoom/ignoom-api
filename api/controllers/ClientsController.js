@@ -7,13 +7,14 @@
 
 // TODO remove this registration stuff create a login as usual
 module.exports = {
-	index: function(req, res){
-		Clients.find().then(function(clients){
-			return res.json(clients);
-		}).fail(function(err){
-			return res.json(err);
-		});
-	},
+  // TODO secure this using authentication for admins
+  index: function(req, res) {
+    Clients.find().then(function(clients) {
+      return res.json(clients);
+    }).fail(function(err) {
+      return res.json(err);
+    });
+  },
   register: function(req, res) {
     // Render register view
     res.view({
@@ -26,10 +27,13 @@ module.exports = {
   },
   callback: function(req, res) {
     // Add register client action
-    var r = API(Registration.registerClient, req, res);
-    if (r) {
-			console.log(r);
-      //return res.redirect('/clients');
+    var action = req.param('action');
+    switch (action) {
+      case 'register':
+        API(Registration.registerClient, req, res);
+        break;
+      default:
+        res.redirect('/');
     }
   }
 };

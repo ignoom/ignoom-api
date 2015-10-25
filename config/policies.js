@@ -34,14 +34,16 @@ module.exports.policies = {
   UsersController: {
      '*' : 'OAuthValidateAccessToken',
      'register' : true,
+     'callback' : true,
+     'index'  : true,
      'verify/:email' : true
   },
   ClientsController: {
       '*' : 'OAuthValidateAccessToken',
       'register' : true,
+      'index'  : true,
       'verify/:email' : true,
-      'callback': true,
-      'index': true
+      'callback': true
   }
 
   /***************************************************************************

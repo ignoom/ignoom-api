@@ -62,12 +62,13 @@ module.exports = {
         client_id: Tokens.generateTokenString()
       });
     }).then(function(token) {
-      return emailGeneratedCode({
+      var register_obj = {
         id: context.id,
         type: context.type,
         verifyURL: sails.config.security.server.url + "/users/verify/" + data.email + "?code=" + token.code,
         email: data.email
-      });
+      };
+      return register_obj;
     });
 
   },
