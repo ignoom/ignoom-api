@@ -34,7 +34,9 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }
+  },
+  'get /clients/register': 'ClientsController.register',
+  'post /clients/local/:action': 'ClientsController.callback'
 
   /***************************************************************************
   *                                                                          *
