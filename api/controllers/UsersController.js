@@ -8,6 +8,11 @@
 module.exports = {
   index: function(req, res){
     // TODO implement method
+    Users.find().then(function(users) {
+      return res.json(users);
+    }).fail(function(err) {
+      return res.json(err);
+    });
   },
   register: function(req, res) {
     // Render web page
@@ -25,6 +30,15 @@ module.exports = {
         res.redirect('/');
     }
   },
+  show: function(req, res){
+    var params =  req.params.all(); // {id: '7'}
+    var id = params.id;
+    Users.find(id).then(function(user) {
+      return res.json(user) ;
+    });
+   
+  },
+
   'verify/:email': function(req, res) {
     API(Registration.verifyUser, req, res);
   },
