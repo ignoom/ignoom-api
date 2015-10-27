@@ -44,5 +44,11 @@ module.exports = {
   },
   current: function(req, res) {
     API(Registration.currentUser, req, res);
+  },
+
+  login: function(req, res) {
+    res.view({
+      errors: req.flash('error')
+    });
   }
 };

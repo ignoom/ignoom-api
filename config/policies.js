@@ -37,7 +37,8 @@ module.exports.policies = {
      'callback' : true,
      'index'  : true,
      'verify/:email' : true,
-     'show' : true
+     'show' : true,
+     'login' : true
   },
   ClientsController: {
       '*' : 'OAuthValidateAccessToken',

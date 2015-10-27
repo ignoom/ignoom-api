@@ -51,4 +51,5 @@ module.exports.routes = {
   'get /users/register': 'UsersController.register',
   'post /users/local/:action': 'UsersController.callback',
   'get /users/:id': 'UsersController.show',
+  'get /login': 'UsersController.login'
 };
