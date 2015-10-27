@@ -6,6 +6,7 @@
  */
 
 module.exports = {
+
   token: function(req, res) {
     API(OAuth.sendToken, req, res);
   },

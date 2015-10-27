@@ -45,11 +45,11 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-
   'get /clients/register': 'ClientsController.register',
   'post /clients/local/:action': 'ClientsController.callback',
   'get /users/register': 'UsersController.register',
   'post /users/local/:action': 'UsersController.callback',
-  'get /users/:id': 'UsersController.show',
+  'get /users/current' : 'UsersController.current',
+  'get /user/:id': 'UsersController.show', // TODO check if we can add a regexp to only allow numbers
   'get /login': 'UsersController.login'
 };

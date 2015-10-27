@@ -30,6 +30,9 @@ module.exports.http = {
   *                                                                          *
   ***************************************************************************/
 
+    passportInit: require('passport').initialize(),
+    passportSession: require('passport').session(),
+
     order: [
        'startRequestTimer',
        'cookieParser',
@@ -74,8 +77,6 @@ module.exports.http = {
     // bodyParser: require('skipper')
 
   },
-  passportInit: require('passport').initialize(),
-  passportSession: require('passport').session(),
 
   /***************************************************************************
   *                                                                          *
